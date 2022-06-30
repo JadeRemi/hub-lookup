@@ -8,6 +8,8 @@ A web app to search for github users.
 Install all project dependencies upon cloning the project.
 ### `npm run serve`
 Launches project locally on [http://localhost:3010](http://localhost:3010) in the browser.
+### `npm run test`
+Tests out the project logic functions.
 ### `npm run build`
 Builds the project into the /dist folder.
 ### `npm run deploy`

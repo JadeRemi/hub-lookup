@@ -1,13 +1,10 @@
 import React, {useState, useEffect} from "react";
-import { Bar } from "./bar.jsx";
-import IconEye from "../images/eye.svg"
-import IconStar from "../images/star.svg"
-import IconFork from "../images/fork.svg"
-import IconLink from "../images/link.svg"
-
-const FALLBACK = 'jaderemi';
-const API = 'https://api.github.com/users/';
-const REPO = '/repos';
+import { Bar } from "../bar/bar.jsx";
+import IconEye from "../../images/eye.svg"
+import IconStar from "../../images/star.svg"
+import IconFork from "../../images/fork.svg"
+import IconLink from "../../images/link.svg"
+import { format, searchData } from "../helpers.js"
 
 export function Search () {
 
@@ -19,43 +16,9 @@ export function Search () {
 
     const dataValid = !preloading && !error && user;
 
-    const fetchAPI = (path, saver) => {
-        fetch(path, {
-            // mode: 'no-cors',
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message) {
-                    setError(data.message === 'Not Found' ? 'User not found!' : 'API rate limit');
-                } else {
-                    setError('');
-                    saver(data);
-                }
-            })
-            .then(setPreloading(false))
-    }
-
-    const searchData = () => {
-        const username = lookup || FALLBACK;
-        setPreloading(true);
-        fetchAPI(`${API}${username}`, setUser);
-        fetchAPI(`${API}${username}${REPO}`, setRepos);
-    }
-
-    // useEffect(() => {
-    //     if (preloading) {
-    //         searchData();
-    //     }
-    // },[])
-
     useEffect(() => {
-        searchData();
+        searchData(setPreloading, lookup, setUser, setRepos, setError);
     },[lookup])
-
-    const format = (day) => {
-        const result = new Date(day)
-        return result.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
-    }
 
     return (
         <div className="wrap">
@@ -73,9 +36,9 @@ export function Search () {
                             <p><span>Total repositories:</span> {user.public_repos}</p>
                         </div>
             )}
-            {dataValid && repos && (
+            {dataValid && (
                 <div className="cards">
-                    {repos.map((item, index)=> (
+                    {repos && repos.map((item, index)=> (
                         <div className="card" key={index}>
                             <div className="card-text">
                                 <div className="card-title">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Search } from "./components/search.jsx";
+import { Search } from "./components/search/search.jsx";
 
 export function App () {
     return (

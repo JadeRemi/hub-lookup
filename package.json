@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,11 +30,13 @@
     "@babel/preset-typescript": "^7.16.5",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "babel-jest": "^28.1.2",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.2",
     "mini-css-extract-plugin": "^2.4.5",
     "sass": "^1.45.0",
     "sass-loader": "^12.4.0",
