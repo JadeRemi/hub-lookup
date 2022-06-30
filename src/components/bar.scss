@@ -1,0 +1,31 @@
+
+.bar{
+    margin: 0 auto 0 auto;
+    max-width: 500px;
+    width: 100%;
+    height: max-content;
+    &-input{
+        margin-top: 16px;
+        display: flex;
+        gap: 16px;
+        flex-direction: row;
+    }
+    label, span{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+.error{
+    margin-top: 8px;
+    color:firebrick;
+    padding-left: 10px;
+}
+button{
+    border-radius: 5px;
+    border: 1px solid rgba(121, 121, 121, 0.7);
+    display: block;
+}
+.input-warning{
+    border: 1px solid firebrick;
+}

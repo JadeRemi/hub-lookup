@@ -1,0 +1,42 @@
+body {
+    font-family: "Poppins", Poppins, serif;
+    background-color:rgba(121, 121, 121, 0.2)
+}
+
+h1,h2,h3,p{
+    margin: 0;
+}
+
+h3{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+p{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+span{
+    font-weight: 800;
+}
+
+.wrap{
+    width: 100%;
+    padding-top: 100px;
+}
+
+input {
+    font-family: "Poppins", Poppins, serif;
+    font-size: 16px;
+    line-height: 24px; 
+    margin: 0 auto;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid rgba(121, 121, 121, 0.7);
+    display: block;
+    width: 100%;
+  }
